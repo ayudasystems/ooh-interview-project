@@ -1,0 +1,92 @@
+openapi: 3.0.0
+info:
+  title: Ooh Interview API
+  description: Provides access to inventory.
+  version: '0.1'
+
+servers:
+  - url: /api/v1
+
+paths:
+  /faces:
+    get:
+      summary: Returns a list of faces
+      description: ''
+      tags:
+        - Inventory
+      responses:
+        '200':
+          description: A JSON object containing a list of faces
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    $ref: '#/components/schemas/FaceList'
+                required:
+                  - items
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        detail:
+          type: string
+
+    Face:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+      required:
+        - id
+        - name
+
+    FaceList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Face'
+
+    JsonApiErrorObject:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Identifies the error type. Does not change between occurrences of the error.
+        title:
+          type: string
+          description: Human-readable summary of the error.
+        detail:
+          type: string
+          description: Human-readable details specific to this occurrence of the error.
+
+    JsonApiError:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/JsonApiErrorObject'
+      required:
+        - errors
+
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/JsonApiError'
+
+tags:
+  - name: Inventory
+    description: Fetch inventory information

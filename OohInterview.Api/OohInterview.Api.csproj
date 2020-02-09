@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Campaigns\List" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OohInterview.DependencyInjection\OohInterview.DependencyInjection.csproj" />
+      <ProjectReference Include="..\OohInterview.Queries\OohInterview.Queries.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="appsettings.Development.json">
+        <DependentUpon>appsettings.json</DependentUpon>
+      </Content>
+    </ItemGroup>
+
+
+</Project>
