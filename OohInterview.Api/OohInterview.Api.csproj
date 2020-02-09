@@ -5,10 +5,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Campaigns\List" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\OohInterview.DependencyInjection\OohInterview.DependencyInjection.csproj" />
       <ProjectReference Include="..\OohInterview.Queries\OohInterview.Queries.csproj" />
     </ItemGroup>
