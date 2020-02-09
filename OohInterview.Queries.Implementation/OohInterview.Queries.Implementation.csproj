@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\OohInterview.DAL\OohInterview.DAL.csproj" />
       <ProjectReference Include="..\OohInterview.Queries\OohInterview.Queries.csproj" />
     </ItemGroup>
 

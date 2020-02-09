@@ -1,4 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using OohInterview.DAL;
+using OohInterview.DAL.Repositories;
 
 namespace OohInterview.DependencyInjection
 {
@@ -7,12 +9,15 @@ namespace OohInterview.DependencyInjection
         public static IServiceCollection AddDatabase(this IServiceCollection services)
         {
             return services
-                .RegisterRepositories();
+                .RegisterRepositories()
+                .AddSingleton<DataContext, DataContext>();
         }
 
         private static IServiceCollection RegisterRepositories(this IServiceCollection services)
         {
-            return services;
+            return services
+                .AddScoped<ICampaignRepository, CampaignRepository>()
+                .AddScoped<IFaceRepository, FaceRepository>();
         }
     }
 }
