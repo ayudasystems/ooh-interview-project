@@ -67,7 +67,7 @@ namespace OohInterview.Api
                 root,
                 context =>
                 {
-                    context.Response.StatusCode = (int) HttpStatusCode.NoContent;
+                    context.Response.Redirect("/Index.html");
                     return context.Response.CompleteAsync();
                 });
         }
