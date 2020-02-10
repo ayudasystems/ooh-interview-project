@@ -1,17 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using OohInterview.DependencyInjection;
 
 namespace OohInterview.Api
@@ -56,6 +50,8 @@ namespace OohInterview.Api
                     .AllowAnyHeader());
             
             app.UseEndpoints(ConfigureEndpoints);
+            ConfigureUserInterface(app);
+           
         }
 
         private static void ConfigureEndpoints(IEndpointRouteBuilder endpoints)
@@ -74,6 +70,17 @@ namespace OohInterview.Api
                     context.Response.StatusCode = (int) HttpStatusCode.NoContent;
                     return context.Response.CompleteAsync();
                 });
+        }
+
+        private void ConfigureUserInterface(IApplicationBuilder app)
+        {
+            var rootDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).FullName;
+            var contentDirectory = Configuration.GetSection("UI")["ContentDirectory"];
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(rootDirectory, contentDirectory)),
+            });
         }
     }
 }
