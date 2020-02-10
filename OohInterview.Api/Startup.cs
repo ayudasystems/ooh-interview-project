@@ -28,8 +28,9 @@ namespace OohInterview.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddCors();
             
+            services.AddControllers();
             
             services
                 .AddDatabase()
@@ -47,6 +48,12 @@ namespace OohInterview.Api
             app.UseExceptionHandler("/error");
             app.UseHttpsRedirection();
             app.UseRouting();
+            
+            app.UseCors(
+                builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
             
             app.UseEndpoints(ConfigureEndpoints);
         }
