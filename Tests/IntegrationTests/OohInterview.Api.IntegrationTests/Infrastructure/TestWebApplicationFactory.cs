@@ -4,37 +4,36 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OohInterview.DAL;
 
 namespace OohInterview.Api.IntegrationTests.Infrastructure
 {
     public class TestWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup>
-        where TStartup: class
+        where TStartup : class
     {
-        public ServiceProvider? ServiceProvider { get; private set; }
-        
+        public DataContext? Database { get; private set; }
+
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
             builder
                 .ConfigureAppConfiguration(
-                    configurationBuilder =>
+                    configurationBuilder => { configurationBuilder.AddConfiguration(CreateConfiguration()); })
+                .ConfigureServices(services => { })
+                .ConfigureTestServices(
+                    services =>
                     {
-                        configurationBuilder.AddConfiguration(CreateConfiguration());
-                    })
-                .ConfigureServices(services => {})
-                .ConfigureTestServices(services =>
-                {
-                    //todo: the db needs to be cleared for each test, might not be right now
-                    ServiceProvider = services.BuildServiceProvider();
-                });
+                        Database = new DataContext(false);
+                        services.AddScoped<DataContext>(_ => Database);
+                    });
         }
 
         private static IConfiguration CreateConfiguration()
         {
             var configValues = new[]
             {
-                new KeyValuePair<string, string>("UI:ContentDirectory", "null"),
+                new KeyValuePair<string, string>("UI:ContentDirectory", "/"),
             };
-            
+
             return new ConfigurationBuilder()
                 .AddInMemoryCollection(configValues)
                 .Build();
