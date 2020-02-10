@@ -2,11 +2,10 @@ using System;
 using OohInterview.Api.Faces.List;
 using OohInterview.Queries.Faces.List;
 using Xunit;
-using Face = OohInterview.Queries.Faces.List.ListFacesResult.Face;
 
 namespace OohInterview.Api.UnitTests.Tests.Faces.List
 {
-    public class ListFacesResponseShould
+    public class ListFacesResponseShould : BaseListFacesTest
     {
         [Fact]
         public void SetTheCorrectNumberOfItems()
@@ -41,21 +40,6 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.List
 
             var responseFace = Assert.Single(response.Items);
             Assert.Equal(queryFace.Name, responseFace.Name);
-        }
-
-        private static ListFacesResult CreateQueryResultWithFaces(int numberOfFaces)
-        {
-            var faces = new Face[numberOfFaces];
-            for (var i = 0; i < numberOfFaces; i++)
-            {
-                faces[i] = CreateFace(name: $"Face {i}");
-            }
-            return new ListFacesResult(faces);
-        }
-
-        private static Face CreateFace(Guid? id = null, string? name = null)
-        {
-            return new Face(id ?? Guid.NewGuid(), name ?? "A Billboard");
         }
     }
 }
