@@ -18,6 +18,16 @@ EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.DAL", "OohInterview.DAL\OohInterview.DAL.csproj", "{45E7001F-286F-4DCE-B9C4-623AC2B9D618}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OohInterview.UI.VanillaJS", "OohInterview.UI.VanillaJS", "{180DEBCF-5A85-40A5-BF1D-613AA095B8C7}"
+ProjectSection(SolutionItems) = preProject
+	OohInterview.UI.VanillaJS\index.html = OohInterview.UI.VanillaJS\index.html
+	OohInterview.UI.VanillaJS\faces.html = OohInterview.UI.VanillaJS\faces.html
+	OohInterview.UI.VanillaJS\faces.js = OohInterview.UI.VanillaJS\faces.js
+	OohInterview.UI.VanillaJS\campaigns.html = OohInterview.UI.VanillaJS\campaigns.html
+	OohInterview.UI.VanillaJS\campaigns.js = OohInterview.UI.VanillaJS\campaigns.js
+	OohInterview.UI.VanillaJS\navigationBar.js = OohInterview.UI.VanillaJS\navigationBar.js
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
