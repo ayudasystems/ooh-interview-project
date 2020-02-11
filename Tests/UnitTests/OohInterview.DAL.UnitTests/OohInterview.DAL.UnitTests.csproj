@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\OohInterview.DAL\OohInterview.DAL.csproj" />
-    <ProjectReference Include="..\..\OohInterview.DAL.Builders\OohInterview.DAL.Builders.csproj" />
+    <ProjectReference Include="..\..\Common\OohInterview.DAL.Builders\OohInterview.DAL.Builders.csproj" />
   </ItemGroup>
 
 </Project>
