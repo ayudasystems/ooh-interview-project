@@ -11,12 +11,12 @@ function loadFaces () {
         if (request.status >= 200 && request.status < 400) {
             let data = JSON.parse(this.response);
             
-            if(data.items.length > 0){
+            if (data.items.length > 0) {
                 createFaceGrid();
                 data.items.forEach(face => {
                     addFaceToGrid(face);
                 });
-            }else{
+            } else {
                 showNoFacesMessage();
             }
         }

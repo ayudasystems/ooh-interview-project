@@ -84,7 +84,7 @@ namespace OohInterview.Api
                         Path.Combine(rootDirectory, contentDirectory)),
                     OnPrepareResponse = ctx =>
                     {
-                        ctx.Context.Response.Headers.Append("Cache-Control", $"no-cache");
+                        ctx.Context.Response.Headers.Append("Cache-Control", "no-cache");
                     }
                 });
         }
