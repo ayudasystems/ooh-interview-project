@@ -23,8 +23,8 @@ namespace OohInterview.Api.IntegrationTests.Tests.Faces.List
         [Fact]
         public async Task ReturnAllOfTheFaces()
         {
-            new FaceBuilder(DataContext).Build();
-            new FaceBuilder(DataContext).Build();
+            new FaceBuilder().BuildAndAddToContext(DataContext);
+            new FaceBuilder().BuildAndAddToContext(DataContext);
 
             var faces = await GetFaces();
 
@@ -32,12 +32,26 @@ namespace OohInterview.Api.IntegrationTests.Tests.Faces.List
         }
 
         [Fact]
+        public async Task ReturnTheCorrectId()
+        {
+            var id = Guid.NewGuid();
+            new FaceBuilder()
+                .WithId(id)
+                .BuildAndAddToContext(DataContext);
+
+            var response = await GetFaces();
+
+            var face = Assert.Single(response.Items);
+            Assert.Equal(id.ToString(), face.Id);
+        }
+
+        [Fact]
         public async Task ReturnTheCorrectName()
         {
             const string name = "A Test Face Name";
-            new FaceBuilder(DataContext)
+            new FaceBuilder()
                 .WithName(name)
-                .Build();
+                .BuildAndAddToContext(DataContext);
 
             var response = await GetFaces();
 
@@ -46,17 +60,17 @@ namespace OohInterview.Api.IntegrationTests.Tests.Faces.List
         }
 
         [Fact]
-        public async Task ReturnTheCorrectId()
+        public async Task ReturnTheCorrectRatePerDay()
         {
-            var id = Guid.NewGuid();
-            new FaceBuilder(DataContext)
-                .WithId(id)
-                .Build();
+            const decimal expectedRate = 88.44m;
+            new FaceBuilder()
+                .WithRatePerDay(expectedRate)
+                .BuildAndAddToContext(DataContext);
 
             var response = await GetFaces();
 
             var face = Assert.Single(response.Items);
-            Assert.Equal(id.ToString(), face.Id);
+            Assert.Equal(expectedRate, face.RatePerDay);
         }
 
         private async Task<ListFacesResponse> GetFaces()

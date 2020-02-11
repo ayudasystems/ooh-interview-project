@@ -12,11 +12,13 @@ namespace OohInterview.Queries.Implementation.Faces.List
         {
             _faceRepository = faceRepository;
         }
+
         public ListFacesResult List()
         {
             var facePocos = _faceRepository.GetFaces();
-            var faces = facePocos.Select(f => 
-                new ListFacesResult.Face(f.Id, f.Name)
+            var faces = facePocos.Select(
+                f =>
+                    new ListFacesResult.Face(f.Id, f.Name, f.RatePerDay)
             );
             return new ListFacesResult(faces);
         }

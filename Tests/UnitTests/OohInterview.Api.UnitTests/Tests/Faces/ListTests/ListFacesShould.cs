@@ -58,27 +58,43 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.ListTests
         [Fact]
         public void ReturnTheCorrectId()
         {
-            var queryFace = new FaceBuilder().WithId(Guid.NewGuid()).Build();
+            var expectedId = Guid.NewGuid();
+            var queryFace = new FaceBuilder().WithId(expectedId).Build();
             SetupFace(queryFace);
 
             var response = _controller.ListFaces();
 
             var listFacesResponse = GetResponseContents(response);
             var face = Assert.Single(listFacesResponse.Items);
-            Assert.Equal(queryFace.Id.ToString(), face.Id);
+            Assert.Equal(expectedId.ToString(), face.Id);
         }
 
         [Fact]
         public void ReturnTheCorrectName()
         {
-            var queryFace = new FaceBuilder().WithName("An Expected Face").Build();
+            const string expectedName = "An Expected Face";
+            var queryFace = new FaceBuilder().WithName(expectedName).Build();
             SetupFace(queryFace);
 
             var response = _controller.ListFaces();
 
             var listFacesResponse = GetResponseContents(response);
             var face = Assert.Single(listFacesResponse.Items);
-            Assert.Equal(queryFace.Name, face.Name);
+            Assert.Equal(expectedName, face.Name);
+        }
+
+        [Fact]
+        public void ReturnTheCorrectRatePerDay()
+        {
+            var expectedRate = 444.88m;
+            var queryFace = new FaceBuilder().WithRatePerDay(expectedRate).Build();
+            SetupFace(queryFace);
+
+            var response = _controller.ListFaces();
+
+            var listFacesResponse = GetResponseContents(response);
+            var face = Assert.Single(listFacesResponse.Items);
+            Assert.Equal(expectedRate, face.RatePerDay);
         }
 
         private ListFacesResponse GetResponseContents(ActionResult<ListFacesResponse> response)

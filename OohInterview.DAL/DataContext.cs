@@ -6,8 +6,8 @@ namespace OohInterview.DAL
 {
     public class DataContext
     {
-        public IList<Face> Faces { get; }
-        public IList<Campaign> Campaigns { get; }
+        public IList<Face> Faces { get; protected set; }
+        public IList<Campaign> Campaigns { get; protected set; }
 
         public DataContext(bool seedData = true)
         {
@@ -23,7 +23,8 @@ namespace OohInterview.DAL
             var firstFace = new Face()
             {
                 Id = Guid.NewGuid(),
-                Name = "First face"
+                Name = "First face",
+                RatePerDay = 5212.67m
             };
 
             Faces.Add(firstFace);
