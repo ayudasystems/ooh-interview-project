@@ -26,18 +26,21 @@ namespace OohInterview.Api.Faces.List
         {
             public string Id { get; }
             public string Name { get; }
+            public decimal RatePerDay { get; }
 
-            public FaceResponse(string id, string name)
+            public FaceResponse(string id, string name, decimal ratePerDay)
             {
                 Id = id;
                 Name = name;
+                RatePerDay = ratePerDay;
             }
 
             public static FaceResponse From(ListFacesResult.Face face)
             {
                 return new FaceResponse(
                     face.Id.ToString(),
-                    face.Name
+                    face.Name,
+                    face.RatePerDay
                 );
             }
         }

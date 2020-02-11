@@ -22,25 +22,41 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.ListTests
         [Fact]
         public void SetTheId()
         {
-            var queryFace = new FaceBuilder().WithId(Guid.NewGuid()).Build();
+            var expectedId = Guid.NewGuid();
+            var queryFace = new FaceBuilder().WithId(expectedId).Build();
             var queryResult = new ListFacesResult(new[] { queryFace });
 
             var response = ListFacesResponse.FromQuery(queryResult);
 
             var responseFace = Assert.Single(response.Items);
-            Assert.Equal(queryFace.Id.ToString(), responseFace.Id);
+            Assert.Equal(expectedId.ToString(), responseFace.Id);
         }
 
         [Fact]
         public void SetTheName()
         {
-            var queryFace = new FaceBuilder().WithName("Expected Face Name").Build();
+            const string expectedName = "An Expected Face";
+            var queryFace = new FaceBuilder().WithName(expectedName).Build();
             var queryResult = new ListFacesResult(new[] { queryFace });
 
             var response = ListFacesResponse.FromQuery(queryResult);
 
             var responseFace = Assert.Single(response.Items);
-            Assert.Equal(queryFace.Name, responseFace.Name);
+            Assert.Equal(expectedName, responseFace.Name);
+        }
+
+
+        [Fact]
+        public void SetTheRatePerDay()
+        {
+            var expectedRate = 444.88m;
+            var queryFace = new FaceBuilder().WithRatePerDay(expectedRate).Build();
+            var queryResult = new ListFacesResult(new[] { queryFace });
+
+            var response = ListFacesResponse.FromQuery(queryResult);
+
+            var responseFace = Assert.Single(response.Items);
+            Assert.Equal(expectedRate, responseFace.RatePerDay);
         }
     }
 }

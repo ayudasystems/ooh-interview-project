@@ -23,9 +23,9 @@ namespace OohInterview.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            
+
             services.AddControllers();
-            
+
             services
                 .AddDatabase()
                 .AddQueries();
@@ -42,16 +42,15 @@ namespace OohInterview.Api
             app.UseExceptionHandler("/error");
             app.UseHttpsRedirection();
             app.UseRouting();
-            
+
             app.UseCors(
                 builder => builder
                     .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader());
-            
+
             app.UseEndpoints(ConfigureEndpoints);
             ConfigureUserInterface(app);
-           
         }
 
         private static void ConfigureEndpoints(IEndpointRouteBuilder endpoints)
@@ -76,11 +75,12 @@ namespace OohInterview.Api
         {
             var rootDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).FullName;
             var contentDirectory = Configuration.GetSection("UI")["ContentDirectory"];
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                FileProvider = new PhysicalFileProvider(
-                    Path.Combine(rootDirectory, contentDirectory)),
-            });
+            app.UseStaticFiles(
+                new StaticFileOptions()
+                {
+                    FileProvider = new PhysicalFileProvider(
+                        Path.Combine(rootDirectory, contentDirectory)),
+                });
         }
     }
 }
