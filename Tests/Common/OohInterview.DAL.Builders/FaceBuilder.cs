@@ -28,7 +28,7 @@ namespace OohInterview.DAL.Builders
             return this;
         }
 
-        public virtual Face Build()
+        public Face Build()
         {
             return new Face()
             {
@@ -36,21 +36,11 @@ namespace OohInterview.DAL.Builders
                 Name = _name
             };
         }
-    }
 
-    public class ContextFaceBuilder : FaceBuilder
-    {
-        private readonly DataContext _context;
-
-        public ContextFaceBuilder(DataContext context)
+        public Face BuildAndAddToContext(DataContext context)
         {
-            _context = context;
-        }
-
-        public override Face Build()
-        {
-            var poco = base.Build();
-            _context.Faces.Add(poco);
+            var poco = Build();
+            context.Faces.Add(poco);
 
             return poco;
         }
