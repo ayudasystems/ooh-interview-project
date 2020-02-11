@@ -5,7 +5,7 @@ function loadNavigationBar () {
                 <a class="navigation-link" href="./index.html">Home</a>\
             </li>\
             <li>\
-                <a class="navigation-link" href="./faces.html">Faces</a>\
+                <a class="navigation-link" href="./inventory.html">Inventory</a>\
             </li>\
             <li>\
                 <a class="navigation-link" href="./campaigns.html">Campaigns</a>\

@@ -1,0 +1,26 @@
+.inventory-container{
+    display: flex;
+    margin-top: 10px;
+}
+
+.filters {
+    background: #dddddd;
+    padding: 15px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.date-section {
+    margin: 0 10px 10px 0;
+}
+
+.date-section label {
+    display: block;
+}
+
+#faces-container {
+    padding: 15px;
+}
