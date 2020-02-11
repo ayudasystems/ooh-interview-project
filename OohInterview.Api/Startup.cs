@@ -39,8 +39,11 @@ namespace OohInterview.Api
             {
                 app.UseHsts();
             }
+            else
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
-            app.UseExceptionHandler("/error");
             app.UseHttpsRedirection();
             app.UseRouting();
 
