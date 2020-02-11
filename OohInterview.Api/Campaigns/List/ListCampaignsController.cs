@@ -1,4 +1,3 @@
-using System.Threading;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OohInterview.Api.Common.Controllers;
@@ -6,7 +5,7 @@ using OohInterview.Queries.Campaigns.List;
 
 namespace OohInterview.Api.Campaigns.List
 {
-    public class ListCampaignsController: BaseController
+    public class ListCampaignsController : BaseController
     {
         private readonly IListCampaigns _listCampaignsQuery;
 
@@ -18,7 +17,7 @@ namespace OohInterview.Api.Campaigns.List
         [HttpGet]
         [Route("campaigns")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<ListCampaignsResponse> ListCampaigns(CancellationToken cancellationToken)
+        public ActionResult<ListCampaignsResponse> ListCampaigns()
         {
             var campaigns = _listCampaignsQuery.List();
 

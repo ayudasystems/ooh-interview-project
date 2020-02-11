@@ -16,6 +16,7 @@ namespace OohInterview.DependencyInjection
         private static IServiceCollection RegisterRepositories(this IServiceCollection services)
         {
             return services
+                .AddScoped<IBookingRepository, BookingRepository>()
                 .AddScoped<ICampaignRepository, CampaignRepository>()
                 .AddScoped<IFaceRepository, FaceRepository>();
         }
