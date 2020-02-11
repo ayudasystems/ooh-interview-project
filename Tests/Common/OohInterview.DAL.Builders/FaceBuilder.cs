@@ -5,40 +5,54 @@ namespace OohInterview.DAL.Builders
 {
     public class FaceBuilder
     {
-        private const string DefaultDescription = "face description";
+        private const string DefaultName = "face description";
 
-        private readonly DataContext _context;
-        private readonly Face _face;
+        private Guid _id;
+        private string _name;
 
-        public FaceBuilder(DataContext context)
+        public FaceBuilder()
         {
-            _context = context;
-            _face = new Face();
-            SetDefaults();
+            _id = Guid.NewGuid();
+            _name = DefaultName;
         }
 
         public FaceBuilder WithId(Guid faceId)
         {
-            _face.Id = faceId;
+            _id = faceId;
             return this;
         }
 
         public FaceBuilder WithName(string name)
         {
-            _face.Name = name;
+            _name = name;
             return this;
         }
 
-        public Face Build()
+        public virtual Face Build()
         {
-            _context.Faces.Add(_face);
-            return _face;
+            return new Face()
+            {
+                Id = _id,
+                Name = _name
+            };
+        }
+    }
+
+    public class ContextFaceBuilder : FaceBuilder
+    {
+        private readonly DataContext _context;
+
+        public ContextFaceBuilder(DataContext context)
+        {
+            _context = context;
         }
 
-        private void SetDefaults()
+        public override Face Build()
         {
-            WithId(Guid.NewGuid())
-                .WithName(DefaultDescription);
+            var poco = base.Build();
+            _context.Faces.Add(poco);
+
+            return poco;
         }
     }
 }
