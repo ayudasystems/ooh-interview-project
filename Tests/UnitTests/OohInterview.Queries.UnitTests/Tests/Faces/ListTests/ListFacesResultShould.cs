@@ -34,7 +34,7 @@ namespace OohInterview.Queries.UnitTests.Tests.Faces.ListTests
             var faces = new List<Face>(numberOfFaces);
             for (var i = 0; i < numberOfFaces; i++)
             {
-                faces.Add(new Face(Guid.NewGuid(), $"Face {i}"));
+                faces.Add(new Face(Guid.NewGuid(), $"Face {i}", 0m));
             }
 
             return faces;

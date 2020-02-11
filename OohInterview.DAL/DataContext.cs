@@ -23,7 +23,8 @@ namespace OohInterview.DAL
             var firstFace = new Face()
             {
                 Id = Guid.NewGuid(),
-                Name = "First face"
+                Name = "First face",
+                RatePerDay = 5212.67m
             };
 
             Faces.Add(firstFace);

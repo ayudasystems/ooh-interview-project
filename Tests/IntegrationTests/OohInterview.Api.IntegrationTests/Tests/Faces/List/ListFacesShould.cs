@@ -32,6 +32,20 @@ namespace OohInterview.Api.IntegrationTests.Tests.Faces.List
         }
 
         [Fact]
+        public async Task ReturnTheCorrectId()
+        {
+            var id = Guid.NewGuid();
+            new FaceBuilder()
+                .WithId(id)
+                .BuildAndAddToContext(DataContext);
+
+            var response = await GetFaces();
+
+            var face = Assert.Single(response.Items);
+            Assert.Equal(id.ToString(), face.Id);
+        }
+
+        [Fact]
         public async Task ReturnTheCorrectName()
         {
             const string name = "A Test Face Name";
@@ -46,17 +60,17 @@ namespace OohInterview.Api.IntegrationTests.Tests.Faces.List
         }
 
         [Fact]
-        public async Task ReturnTheCorrectId()
+        public async Task ReturnTheCorrectRatePerDay()
         {
-            var id = Guid.NewGuid();
+            const decimal expectedRate = 88.44m;
             new FaceBuilder()
-                .WithId(id)
+                .WithRatePerDay(expectedRate)
                 .BuildAndAddToContext(DataContext);
 
             var response = await GetFaces();
 
             var face = Assert.Single(response.Items);
-            Assert.Equal(id.ToString(), face.Id);
+            Assert.Equal(expectedRate, face.RatePerDay);
         }
 
         private async Task<ListFacesResponse> GetFaces()
