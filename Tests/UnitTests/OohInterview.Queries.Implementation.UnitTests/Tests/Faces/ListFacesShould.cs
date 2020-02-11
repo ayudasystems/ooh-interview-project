@@ -69,6 +69,19 @@ namespace OohInterview.Queries.Implementation.UnitTests.Tests.Faces
             Assert.Equal(expectedName, resultFace.Name);
         }
 
+        [Fact]
+        public void ReturnTheCorrectRatePerDay()
+        {
+            const decimal expectedRate = 135.79m;
+            var face = new FaceBuilder().WithRatePerDay(expectedRate).Build();
+            SetupFaces(new[] { face });
+
+            var result = _listFaces.List();
+
+            var resultFace = Assert.Single(result.Faces);
+            Assert.Equal(expectedRate, resultFace.RatePerDay);
+        }
+
         private void SetupNoFaces()
         {
             SetupFaces(Enumerable.Empty<Face>());
