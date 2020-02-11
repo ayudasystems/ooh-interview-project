@@ -28,6 +28,9 @@ namespace OohInterview.Queries.Campaigns.List
                 if (string.IsNullOrWhiteSpace(name))
                     throw new ArgumentException($"{nameof(Campaign)} {nameof(Name)}");
 
+                if (endDate < startDate)
+                    throw new ArgumentException("The Start Date must be before the End Date");
+
                 Id = id;
                 Name = name;
                 StartDate = startDate;
