@@ -34,8 +34,8 @@ It is served as static files from the root URL of the server.
 | UI:ContentDirectory | The Directory of the UI files | These files are served statically |
 
 ## API's
-The API requires documentation to be written before development.\
-The API Definition can be found at `/docs/api/ooh-interview-api-swagger.yaml`
+The API documentation describes the API contract. The API implementation should match this contract.
+It can be found at `/docs/api/ooh-interview-api-swagger.yaml`
 
 ## Testing
 ### API Testing
