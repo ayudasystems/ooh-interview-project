@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using OohInterview.Queries.Faces.List;
 using Xunit;
+using Face = OohInterview.Queries.Faces.List.ListFacesResult.Face;
 
 namespace OohInterview.Queries.UnitTests.Tests.Faces.ListTests
 {
@@ -28,12 +29,12 @@ namespace OohInterview.Queries.UnitTests.Tests.Faces.ListTests
             Assert.Equal(numberOfFaces, result.Faces.Count);
         }
 
-        private static IEnumerable<ListFacesResult.Face> CreateMultipleFaces(int numberOfFaces)
+        private static IEnumerable<Face> CreateMultipleFaces(int numberOfFaces)
         {
-            var faces = new List<ListFacesResult.Face>(numberOfFaces);
+            var faces = new List<Face>(numberOfFaces);
             for (var i = 0; i < numberOfFaces; i++)
             {
-                faces.Add(new ListFacesResult.Face(Guid.NewGuid(), $"Face {i}"));
+                faces.Add(new Face(Guid.NewGuid(), $"Face {i}"));
             }
 
             return faces;
