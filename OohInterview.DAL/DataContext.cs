@@ -36,7 +36,6 @@ namespace OohInterview.DAL
                     Name = "First Campaign",
                     StartDate = new DateTime(2019, 1, 1),
                     EndDate = new DateTime(2019, 12, 31),
-                    Faces = new List<Face> { firstFace }
                 });
         }
     }

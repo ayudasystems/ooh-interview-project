@@ -19,9 +19,8 @@ namespace OohInterview.Queries.Campaigns.List
             public DateTime StartDate { get; }
             public DateTime EndDate { get; }
             public string Name { get; }
-            public IReadOnlyCollection<Face> Faces { get; }
-            
-            public Campaign(Guid id, string name, DateTime startDate, DateTime endDate, IEnumerable<Face> faces)
+
+            public Campaign(Guid id, string name, DateTime startDate, DateTime endDate)
             {
                 if (id == Guid.Empty)
                     throw new ArgumentException($"{nameof(Campaign)} {nameof(Id)}");
@@ -33,17 +32,6 @@ namespace OohInterview.Queries.Campaigns.List
                 Name = name;
                 StartDate = startDate;
                 EndDate = endDate;
-                Faces = faces.ToImmutableList();
-            }
-        }
-
-        public class Face
-        {
-            public Guid Id { get; }
-
-            public Face(Guid id)
-            {
-                Id = id;
             }
         }
     }

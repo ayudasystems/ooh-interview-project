@@ -3,7 +3,7 @@ using OohInterview.DAL.Pocos;
 
 namespace OohInterview.DAL.Repositories
 {
-    public class CampaignRepository: ICampaignRepository
+    public class CampaignRepository : ICampaignRepository
     {
         private readonly DataContext _dataContext;
 
@@ -11,7 +11,7 @@ namespace OohInterview.DAL.Repositories
         {
             _dataContext = dataContext;
         }
-        
+
         public IEnumerable<Campaign> GetCampaigns()
         {
             return _dataContext.Campaigns;
@@ -19,7 +19,6 @@ namespace OohInterview.DAL.Repositories
 
         public void AddCampaign(Campaign campaign)
         {
-            //TODO: make sure the faces inside the campaign actually exists
             _dataContext.Campaigns.Add(campaign);
         }
     }
