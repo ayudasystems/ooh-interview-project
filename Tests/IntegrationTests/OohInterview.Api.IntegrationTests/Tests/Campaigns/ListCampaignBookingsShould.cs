@@ -32,6 +32,20 @@ namespace OohInterview.Api.IntegrationTests.Tests.Campaigns
         }
 
         [Fact]
+        public async Task NotReturnUnrelatedBookings()
+        {
+            var expectedCampaign = new CampaignBuilder().BuildAndAddToContext(DataContext);
+            var otherCampaign = new CampaignBuilder().BuildAndAddToContext(DataContext);
+
+            SetupBookingForCampaign(expectedCampaign.Id);
+            SetupBookingForCampaign(otherCampaign.Id);
+
+            var bookings = await GetCampaignBookings(expectedCampaign.Id);
+
+            Assert.Single(bookings.Items);
+        }
+
+        [Fact]
         public async Task ReturnTheCorrectId()
         {
             var campaign = new CampaignBuilder().BuildAndAddToContext(DataContext);
