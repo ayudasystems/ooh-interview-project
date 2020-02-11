@@ -3,24 +3,24 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using OohInterview.Api.Faces.List;
-using OohInterview.Queries.Faces.List;
 using OohInterview.Api.UnitTests.Assertions;
+using OohInterview.Api.UnitTests.QueryResultBuilders;
+using OohInterview.Queries.Faces.List;
 using Xunit;
-using Face = OohInterview.Queries.Faces.List.ListFacesResult.Face;
 
-namespace OohInterview.Api.UnitTests.Tests.Faces.List
+namespace OohInterview.Api.UnitTests.Tests.Faces.ListTests
 {
     public class ListFacesShould : BaseListFacesTest
     {
         private readonly ListFacesController _controller;
         private readonly Mock<IListFaces> _listFacesQuery;
-        
+
         public ListFacesShould()
         {
             _listFacesQuery = new Mock<IListFaces>(MockBehavior.Strict);
             _controller = new ListFacesController(_listFacesQuery.Object);
         }
-        
+
         [Fact]
         public void ReturnA200ResponseCodeWhenSuccessful()
         {
@@ -41,7 +41,7 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.List
             var listFacesResponse = GetResponseContents(response);
             Assert.Empty(listFacesResponse.Items);
         }
-        
+
         [Fact]
         public void ReturnMultipleFaces()
         {
@@ -53,11 +53,11 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.List
             var listFacesResponse = GetResponseContents(response);
             Assert.Equal(faceCount, listFacesResponse.Items.Count);
         }
-        
+
         [Fact]
         public void ReturnTheCorrectId()
         {
-            var queryFace = CreateFace(Guid.NewGuid());
+            var queryFace = new FaceBuilder().WithId(Guid.NewGuid()).Build();
             SetupFace(queryFace);
 
             var response = _controller.ListFaces();
@@ -66,11 +66,11 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.List
             var face = Assert.Single(listFacesResponse.Items);
             Assert.Equal(queryFace.Id.ToString(), face.Id);
         }
-        
+
         [Fact]
         public void ReturnTheCorrectName()
         {
-            var queryFace = CreateFace(name: "An Expected Face");
+            var queryFace = new FaceBuilder().WithName("An Expected Face").Build();
             SetupFace(queryFace);
 
             var response = _controller.ListFaces();
@@ -84,16 +84,16 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.List
         {
             return response.AssertOkObjectResponse();
         }
-        
+
         private void SetupQueryReturnsNoFaces()
         {
-            var emptyFaces = new ListFacesResult(Enumerable.Empty<Face>());
+            var emptyFaces = new ListFacesResult(Enumerable.Empty<ListFacesResult.Face>());
             SetupQueryResult(emptyFaces);
         }
 
-        private void SetupFace(Face face)
+        private void SetupFace(ListFacesResult.Face face)
         {
-            var queryResult = new ListFacesResult(new []{ face });
+            var queryResult = new ListFacesResult(new[] { face });
             SetupQueryResult(queryResult);
         }
 
@@ -102,7 +102,7 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.List
             var facesResult = CreateQueryResultWithFaces(faceCount);
             SetupQueryResult(facesResult);
         }
-        
+
         private void SetupQueryResult(ListFacesResult facesResult)
         {
             _listFacesQuery.Reset();
