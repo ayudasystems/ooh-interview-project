@@ -11,7 +11,7 @@ namespace OohInterview.Api.IntegrationTests.Infrastructure
     public class TestWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup>
         where TStartup : class
     {
-        public DataContext? Database { get; private set; }
+        public DataContext? DataContext { get; private set; }
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
@@ -22,8 +22,8 @@ namespace OohInterview.Api.IntegrationTests.Infrastructure
                 .ConfigureTestServices(
                     services =>
                     {
-                        Database = new DataContext(false);
-                        services.AddScoped<DataContext>(_ => Database);
+                        DataContext = new DataContext(false);
+                        services.AddScoped<DataContext>(_ => DataContext);
                     });
         }
 

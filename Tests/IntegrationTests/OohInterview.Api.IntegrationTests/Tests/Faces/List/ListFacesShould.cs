@@ -23,8 +23,8 @@ namespace OohInterview.Api.IntegrationTests.Tests.Faces.List
         [Fact]
         public async Task ReturnAllOfTheFaces()
         {
-            new FaceBuilder(Database).Build();
-            new FaceBuilder(Database).Build();
+            new FaceBuilder(DataContext).Build();
+            new FaceBuilder(DataContext).Build();
 
             var faces = await GetFaces();
 
@@ -35,7 +35,7 @@ namespace OohInterview.Api.IntegrationTests.Tests.Faces.List
         public async Task ReturnTheCorrectName()
         {
             const string name = "A Test Face Name";
-            new FaceBuilder(Database)
+            new FaceBuilder(DataContext)
                 .WithName(name)
                 .Build();
 
@@ -49,7 +49,7 @@ namespace OohInterview.Api.IntegrationTests.Tests.Faces.List
         public async Task ReturnTheCorrectId()
         {
             var id = Guid.NewGuid();
-            new FaceBuilder(Database)
+            new FaceBuilder(DataContext)
                 .WithId(id)
                 .Build();
 

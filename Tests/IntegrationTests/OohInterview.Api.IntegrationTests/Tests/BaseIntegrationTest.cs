@@ -10,13 +10,13 @@ namespace OohInterview.Api.IntegrationTests.Tests
         private const string BaseUrl = "/api/v1/";
 
         protected readonly HttpClient Client;
-        protected readonly DataContext Database;
+        protected readonly DataContext DataContext;
 
         public BaseIntegrationTest()
         {
             var factory = new TestWebApplicationFactory<Startup>();
             Client = factory.CreateClient();
-            Database = factory.Database ?? throw new Exception("Failed to initialise the test database");
+            DataContext = factory.DataContext ?? throw new Exception("Failed to initialise the test data context");
         }
 
         protected string CreateUrl(string endpoint)

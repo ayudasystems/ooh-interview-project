@@ -9,12 +9,12 @@ namespace OohInterview.DAL
         public IList<Face> Faces { get; }
         public IList<Campaign> Campaigns { get; }
 
-        public DataContext(bool initialise = true)
+        public DataContext(bool seedData = true)
         {
             Faces = new List<Face>();
             Campaigns = new List<Campaign>();
 
-            if (initialise)
+            if (seedData)
                 InitializeData();
         }
 
