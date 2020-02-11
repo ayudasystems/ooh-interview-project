@@ -6,7 +6,7 @@ using OohInterview.Api.IntegrationTests.Assertions;
 using OohInterview.DAL.Builders;
 using Xunit;
 
-namespace OohInterview.Api.IntegrationTests.Tests.Faces.List
+namespace OohInterview.Api.IntegrationTests.Tests.Faces
 {
     public class ListFacesShould : BaseIntegrationTest
     {
