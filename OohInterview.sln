@@ -1,5 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+#
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Api", "OohInterview.Api\OohInterview.Api.csproj", "{543B494B-CD52-4E0E-985C-502032F38116}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Queries", "OohInterview.Queries\OohInterview.Queries.csproj", "{E17D22CF-5105-4262-9341-6A62912E724E}"
@@ -9,24 +10,29 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Queries.Implementation", "OohInterview.Queries.Implementation\OohInterview.Queries.Implementation.csproj", "{EF7A9B44-BAE4-4D29-93EA-6AF900EAE06F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{9C83B45A-B890-4F5C-912A-B56B8C07C2F7}"
-ProjectSection(SolutionItems) = preProject
-	README.md = README.md
-	.gitignore = .gitignore
-	global.json = global.json
-	docs\api\ooh-interview-api-swagger.yaml = docs\api\ooh-interview-api-swagger.yaml
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		.gitignore = .gitignore
+		docs\api\ooh-interview-api-swagger.yaml = docs\api\ooh-interview-api-swagger.yaml
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.DAL", "OohInterview.DAL\OohInterview.DAL.csproj", "{45E7001F-286F-4DCE-B9C4-623AC2B9D618}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OohInterview.UI.VanillaJS", "OohInterview.UI.VanillaJS", "{180DEBCF-5A85-40A5-BF1D-613AA095B8C7}"
-ProjectSection(SolutionItems) = preProject
-	OohInterview.UI.VanillaJS\index.html = OohInterview.UI.VanillaJS\index.html
-	OohInterview.UI.VanillaJS\faces.html = OohInterview.UI.VanillaJS\faces.html
-	OohInterview.UI.VanillaJS\faces.js = OohInterview.UI.VanillaJS\faces.js
-	OohInterview.UI.VanillaJS\campaigns.html = OohInterview.UI.VanillaJS\campaigns.html
-	OohInterview.UI.VanillaJS\campaigns.js = OohInterview.UI.VanillaJS\campaigns.js
-	OohInterview.UI.VanillaJS\navigationBar.js = OohInterview.UI.VanillaJS\navigationBar.js
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		OohInterview.UI.VanillaJS\index.html = OohInterview.UI.VanillaJS\index.html
+		OohInterview.UI.VanillaJS\faces.html = OohInterview.UI.VanillaJS\faces.html
+		OohInterview.UI.VanillaJS\faces.js = OohInterview.UI.VanillaJS\faces.js
+		OohInterview.UI.VanillaJS\campaigns.html = OohInterview.UI.VanillaJS\campaigns.html
+		OohInterview.UI.VanillaJS\campaigns.js = OohInterview.UI.VanillaJS\campaigns.js
+		OohInterview.UI.VanillaJS\navigationBar.js = OohInterview.UI.VanillaJS\navigationBar.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2864BDCB-1959-4742-BBB7-386C93B5B11A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{4103E088-2F78-4A6F-9227-1563CA2EE15F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Api.UnitTests", "Tests\UnitTests\OohInterview.Api.UnitTests\OohInterview.Api.UnitTests.csproj", "{FF5913CF-37EE-491B-9A6C-43B9397E0F2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,5 +60,13 @@ Global
 		{45E7001F-286F-4DCE-B9C4-623AC2B9D618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E7001F-286F-4DCE-B9C4-623AC2B9D618}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45E7001F-286F-4DCE-B9C4-623AC2B9D618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF5913CF-37EE-491B-9A6C-43B9397E0F2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF5913CF-37EE-491B-9A6C-43B9397E0F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF5913CF-37EE-491B-9A6C-43B9397E0F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF5913CF-37EE-491B-9A6C-43B9397E0F2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4103E088-2F78-4A6F-9227-1563CA2EE15F} = {2864BDCB-1959-4742-BBB7-386C93B5B11A}
+		{FF5913CF-37EE-491B-9A6C-43B9397E0F2D} = {4103E088-2F78-4A6F-9227-1563CA2EE15F}
 	EndGlobalSection
 EndGlobal
