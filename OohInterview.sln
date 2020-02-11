@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-#
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Api", "OohInterview.Api\OohInterview.Api.csproj", "{543B494B-CD52-4E0E-985C-502032F38116}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Queries", "OohInterview.Queries\OohInterview.Queries.csproj", "{E17D22CF-5105-4262-9341-6A62912E724E}"
@@ -34,6 +34,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Api.UnitTests", "Tests\UnitTests\OohInterview.Api.UnitTests\OohInterview.Api.UnitTests.csproj", "{FF5913CF-37EE-491B-9A6C-43B9397E0F2D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IntegrationTests", "IntegrationTests", "{338A807C-532D-4525-A52D-ED422D8B1642}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Api.IntegrationTests", "Tests\IntegrationTests\OohInterview.Api.IntegrationTests\OohInterview.Api.IntegrationTests.csproj", "{3C6CFD54-2CBD-4592-A62B-DFDA53FA3622}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,9 +68,15 @@ Global
 		{FF5913CF-37EE-491B-9A6C-43B9397E0F2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF5913CF-37EE-491B-9A6C-43B9397E0F2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF5913CF-37EE-491B-9A6C-43B9397E0F2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C6CFD54-2CBD-4592-A62B-DFDA53FA3622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C6CFD54-2CBD-4592-A62B-DFDA53FA3622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C6CFD54-2CBD-4592-A62B-DFDA53FA3622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C6CFD54-2CBD-4592-A62B-DFDA53FA3622}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4103E088-2F78-4A6F-9227-1563CA2EE15F} = {2864BDCB-1959-4742-BBB7-386C93B5B11A}
 		{FF5913CF-37EE-491B-9A6C-43B9397E0F2D} = {4103E088-2F78-4A6F-9227-1563CA2EE15F}
+		{338A807C-532D-4525-A52D-ED422D8B1642} = {2864BDCB-1959-4742-BBB7-386C93B5B11A}
+		{3C6CFD54-2CBD-4592-A62B-DFDA53FA3622} = {338A807C-532D-4525-A52D-ED422D8B1642}
 	EndGlobalSection
 EndGlobal
