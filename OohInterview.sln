@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 
+#
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Api", "OohInterview.Api\OohInterview.Api.csproj", "{543B494B-CD52-4E0E-985C-502032F38116}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Queries", "OohInterview.Queries\OohInterview.Queries.csproj", "{E17D22CF-5105-4262-9341-6A62912E724E}"
@@ -19,13 +19,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.DAL", "OohInterview.DAL\OohInterview.DAL.csproj", "{45E7001F-286F-4DCE-B9C4-623AC2B9D618}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OohInterview.UI.VanillaJS", "OohInterview.UI.VanillaJS", "{180DEBCF-5A85-40A5-BF1D-613AA095B8C7}"
+
 	ProjectSection(SolutionItems) = preProject
 		OohInterview.UI.VanillaJS\index.html = OohInterview.UI.VanillaJS\index.html
-		OohInterview.UI.VanillaJS\faces.html = OohInterview.UI.VanillaJS\faces.html
-		OohInterview.UI.VanillaJS\faces.js = OohInterview.UI.VanillaJS\faces.js
 		OohInterview.UI.VanillaJS\campaigns.html = OohInterview.UI.VanillaJS\campaigns.html
 		OohInterview.UI.VanillaJS\campaigns.js = OohInterview.UI.VanillaJS\campaigns.js
 		OohInterview.UI.VanillaJS\navigationBar.js = OohInterview.UI.VanillaJS\navigationBar.js
+								OohInterview.UI.VanillaJS\style.css = OohInterview.UI.VanillaJS\style.css
+		OohInterview.UI.VanillaJS\inventory.html = OohInterview.UI.VanillaJS\inventory.html
+		OohInterview.UI.VanillaJS\inventory.js = OohInterview.UI.VanillaJS\inventory.js
+		OohInterview.UI.VanillaJS\inventory.css = OohInterview.UI.VanillaJS\inventory.css
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2864BDCB-1959-4742-BBB7-386C93B5B11A}"
@@ -109,5 +112,7 @@ Global
 		{E69ABE32-3710-4360-BD28-528BAD6348C8} = {4103E088-2F78-4A6F-9227-1563CA2EE15F}
 		{C7DF1DB7-A01F-4801-B35D-0FBBC8ED8B4C} = {4103E088-2F78-4A6F-9227-1563CA2EE15F}
 		{1BDA127C-A0C8-425E-BE48-70E1CB5C7492} = {4103E088-2F78-4A6F-9227-1563CA2EE15F}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal

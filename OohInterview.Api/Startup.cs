@@ -1,6 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -75,11 +76,16 @@ namespace OohInterview.Api
         {
             var rootDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).FullName;
             var contentDirectory = Configuration.GetSection("UI")["ContentDirectory"];
+
             app.UseStaticFiles(
                 new StaticFileOptions()
                 {
                     FileProvider = new PhysicalFileProvider(
                         Path.Combine(rootDirectory, contentDirectory)),
+                    OnPrepareResponse = ctx =>
+                    {
+                        ctx.Context.Response.Headers.Append("Cache-Control", "no-cache");
+                    }
                 });
         }
     }

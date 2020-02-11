@@ -1,0 +1,64 @@
+.inventory-container{
+    display: flex;
+    margin-top: 10px;
+}
+
+.filters {
+    background: #dddddd;
+    padding: 15px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.date-section {
+    margin: 0 10px 10px 0;
+}
+
+.date-section label {
+    display: block;
+}
+
+#faces-container {
+    padding: 15px;
+    width: 100%;
+}
+
+#faces-grid {
+    border: 2px solid #FFFFFF;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#faces-grid td, #faces-grid th {
+    border: 1px solid #FFFFFF;
+    padding: 3px 4px;
+}
+
+#faces-grid tbody td {
+    font-size: 13px;
+}
+
+#faces-grid tr:nth-child(even) {
+    background: #EBEBEB;
+}
+
+#faces-grid thead {
+    background: #FFFFFF;
+    border-bottom: 4px solid #333333;
+}
+
+#faces-grid thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+    border-left: 2px solid #333333;
+}
+
+#faces-grid thead th:first-child {
+    border-left: none;
+}

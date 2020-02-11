@@ -1,7 +1,16 @@
-let html = '<div>\
-                <a href="./index.html">Home</a>\
-                <a href="./faces.html">Faces</a>\
-                <a href="./campaigns.html">Campaigns</a>\
-            </div>';
+function loadNavigationBar () {
+    document.getElementById('nav').innerHTML =
+        '<ul>\
+            <li>\
+                <a class="navigation-link" href="./index.html">Home</a>\
+            </li>\
+            <li>\
+                <a class="navigation-link" href="./inventory.html">Inventory</a>\
+            </li>\
+            <li>\
+                <a class="navigation-link" href="./campaigns.html">Campaigns</a>\
+            </li>\
+        </ul>';
+}
 
-document.getElementById('nav').innerHTML = html;
+window.addEventListener('load', loadNavigationBar, false);
