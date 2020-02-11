@@ -6,8 +6,8 @@ namespace OohInterview.DAL
 {
     public class DataContext
     {
-        public IList<Face> Faces { get; }
-        public IList<Campaign> Campaigns { get; }
+        public IList<Face> Faces { get; protected set; }
+        public IList<Campaign> Campaigns { get; protected set; }
 
         public DataContext(bool seedData = true)
         {
