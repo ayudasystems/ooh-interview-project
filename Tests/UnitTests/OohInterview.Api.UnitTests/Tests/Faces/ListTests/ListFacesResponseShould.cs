@@ -45,7 +45,6 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.ListTests
             Assert.Equal(expectedName, responseFace.Name);
         }
 
-
         [Fact]
         public void SetTheRatePerDay()
         {
