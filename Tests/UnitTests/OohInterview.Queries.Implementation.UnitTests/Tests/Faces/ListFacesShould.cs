@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Moq;
+using OohInterview.DAL.Builders;
 using OohInterview.DAL.Pocos;
 using OohInterview.DAL.Repositories;
 using OohInterview.Queries.Implementation.Faces.List;
@@ -30,9 +32,58 @@ namespace OohInterview.Queries.Implementation.UnitTests.Tests.Faces
             Assert.Empty(result.Faces);
         }
 
+        [Fact]
+        public void ReturnTheCorrectNumberOfFaces()
+        {
+            const int expectedFaceCount = 3;
+            SetupMultipleFaces(3);
+
+            var result = _listFaces.List(CancellationToken.None);
+
+            Assert.Equal(expectedFaceCount, result.Faces.Count);
+        }
+
+        [Fact]
+        public void ReturnTheCorrectId()
+        {
+            var expectedId = Guid.NewGuid();
+            var face = new FaceBuilder().WithId(expectedId).Build();
+            SetupFaces(new[] { face });
+
+            var result = _listFaces.List(CancellationToken.None);
+
+            var resultFace = Assert.Single(result.Faces);
+            Assert.Equal(expectedId, resultFace.Id);
+        }
+
+        [Fact]
+        public void ReturnTheCorrectName()
+        {
+            const string expectedName = "An Expected Face";
+            var face = new FaceBuilder().WithName(expectedName).Build();
+            SetupFaces(new[] { face });
+
+            var result = _listFaces.List(CancellationToken.None);
+
+            var resultFace = Assert.Single(result.Faces);
+            Assert.Equal(expectedName, resultFace.Name);
+        }
+
         private void SetupNoFaces()
         {
             SetupFaces(Enumerable.Empty<Face>());
+        }
+
+        private void SetupMultipleFaces(int numberOfFaces)
+        {
+            var faces = new List<Face>(numberOfFaces);
+            for (var i = 0; i < numberOfFaces; i++)
+            {
+                var face = new FaceBuilder().WithName($"Face {i}").Build();
+                faces.Add(face);
+            }
+
+            SetupFaces(faces);
         }
 
         private void SetupFaces(IEnumerable<Face> faces)
