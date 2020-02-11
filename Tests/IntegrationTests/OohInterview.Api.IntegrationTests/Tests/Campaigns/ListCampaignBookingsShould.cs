@@ -37,12 +37,13 @@ namespace OohInterview.Api.IntegrationTests.Tests.Campaigns
             var expectedCampaign = new CampaignBuilder().BuildAndAddToContext(DataContext);
             var otherCampaign = new CampaignBuilder().BuildAndAddToContext(DataContext);
 
-            SetupBookingForCampaign(expectedCampaign.Id);
+            var (_, expectedFace) = SetupBookingForCampaign(expectedCampaign.Id);
             SetupBookingForCampaign(otherCampaign.Id);
 
             var bookings = await GetCampaignBookings(expectedCampaign.Id);
 
-            Assert.Single(bookings.Items);
+            var bookingResponse = Assert.Single(bookings.Items);
+            Assert.Equal(expectedFace.Id.ToString(), bookingResponse.FaceId);
         }
 
         [Fact]
