@@ -44,6 +44,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.DAL.Builders",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Queries.UnitTests", "Tests\UnitTests\OohInterview.Queries.UnitTests\OohInterview.Queries.UnitTests.csproj", "{E69ABE32-3710-4360-BD28-528BAD6348C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OohInterview.Queries.Implementation.UnitTests", "Tests\UnitTests\OohInterview.Queries.Implementation.UnitTests\OohInterview.Queries.Implementation.UnitTests.csproj", "{C7DF1DB7-A01F-4801-B35D-0FBBC8ED8B4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{E69ABE32-3710-4360-BD28-528BAD6348C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E69ABE32-3710-4360-BD28-528BAD6348C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E69ABE32-3710-4360-BD28-528BAD6348C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7DF1DB7-A01F-4801-B35D-0FBBC8ED8B4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7DF1DB7-A01F-4801-B35D-0FBBC8ED8B4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7DF1DB7-A01F-4801-B35D-0FBBC8ED8B4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7DF1DB7-A01F-4801-B35D-0FBBC8ED8B4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4103E088-2F78-4A6F-9227-1563CA2EE15F} = {2864BDCB-1959-4742-BBB7-386C93B5B11A}
@@ -95,5 +101,6 @@ Global
 		{1345E74F-44FB-41C6-853A-F16139D47A59} = {2864BDCB-1959-4742-BBB7-386C93B5B11A}
 		{20754279-955A-40F0-ABA3-410C775406E4} = {1345E74F-44FB-41C6-853A-F16139D47A59}
 		{E69ABE32-3710-4360-BD28-528BAD6348C8} = {4103E088-2F78-4A6F-9227-1563CA2EE15F}
+		{C7DF1DB7-A01F-4801-B35D-0FBBC8ED8B4C} = {4103E088-2F78-4A6F-9227-1563CA2EE15F}
 	EndGlobalSection
 EndGlobal
