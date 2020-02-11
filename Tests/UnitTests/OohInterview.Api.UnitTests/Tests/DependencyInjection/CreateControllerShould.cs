@@ -17,6 +17,15 @@ namespace OohInterview.Api.UnitTests.Tests.DependencyInjection
             _services = RegisterServices();
         }
 
+        /// <summary>
+        /// This test attempts to instantiate every controller.
+        /// To do this, it uses the Dependency Injection Container to find the required dependencies.
+        /// Any dependencies that have not been register for Dependency Injection will cause test failures.
+        /// If a test fails, check which new classes / interfaces have been added to constructors and
+        /// make sure that they are registered in one of the classes in OohInterview.DependencyInjection.
+        /// If they are registered correctly, then there may be an exception thrown in a constructor of
+        /// a dependency.
+        /// </summary>
         [Theory]
         [MemberData(nameof(Controllers))]
         public void SuccessfullyLoadDependencies(Type controllerType)
