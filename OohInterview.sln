@@ -26,6 +26,7 @@ ProjectSection(SolutionItems) = preProject
 	OohInterview.UI.VanillaJS\campaigns.html = OohInterview.UI.VanillaJS\campaigns.html
 	OohInterview.UI.VanillaJS\campaigns.js = OohInterview.UI.VanillaJS\campaigns.js
 	OohInterview.UI.VanillaJS\navigationBar.js = OohInterview.UI.VanillaJS\navigationBar.js
+	OohInterview.UI.VanillaJS\style.css = OohInterview.UI.VanillaJS\style.css
 EndProjectSection
 EndProject
 Global
@@ -54,5 +55,7 @@ Global
 		{45E7001F-286F-4DCE-B9C4-623AC2B9D618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E7001F-286F-4DCE-B9C4-623AC2B9D618}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45E7001F-286F-4DCE-B9C4-623AC2B9D618}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal

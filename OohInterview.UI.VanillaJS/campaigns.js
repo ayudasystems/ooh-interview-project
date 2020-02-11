@@ -17,3 +17,5 @@ function loadCampaigns () {
 
     request.send();
 }
+
+window.addEventListener('load', loadCampaigns, false);

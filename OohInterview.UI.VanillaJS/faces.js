@@ -17,3 +17,5 @@ function loadFaces () {
     
     request.send();
 }
+
+window.addEventListener('load', loadFaces, false);
