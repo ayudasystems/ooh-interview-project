@@ -27,7 +27,7 @@ namespace OohInterview.Queries.Implementation.UnitTests.Tests.Faces
         {
             SetupNoFaces();
 
-            var result = _listFaces.List(CancellationToken.None);
+            var result = _listFaces.List();
 
             Assert.Empty(result.Faces);
         }
@@ -38,7 +38,7 @@ namespace OohInterview.Queries.Implementation.UnitTests.Tests.Faces
             const int expectedFaceCount = 3;
             SetupMultipleFaces(3);
 
-            var result = _listFaces.List(CancellationToken.None);
+            var result = _listFaces.List();
 
             Assert.Equal(expectedFaceCount, result.Faces.Count);
         }
@@ -50,7 +50,7 @@ namespace OohInterview.Queries.Implementation.UnitTests.Tests.Faces
             var face = new FaceBuilder().WithId(expectedId).Build();
             SetupFaces(new[] { face });
 
-            var result = _listFaces.List(CancellationToken.None);
+            var result = _listFaces.List();
 
             var resultFace = Assert.Single(result.Faces);
             Assert.Equal(expectedId, resultFace.Id);
@@ -63,7 +63,7 @@ namespace OohInterview.Queries.Implementation.UnitTests.Tests.Faces
             var face = new FaceBuilder().WithName(expectedName).Build();
             SetupFaces(new[] { face });
 
-            var result = _listFaces.List(CancellationToken.None);
+            var result = _listFaces.List();
 
             var resultFace = Assert.Single(result.Faces);
             Assert.Equal(expectedName, resultFace.Name);
