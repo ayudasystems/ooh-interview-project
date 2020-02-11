@@ -1,6 +1,6 @@
 using System;
-using OohInterview.Queries.Faces.List;
 using Xunit;
+using Face = OohInterview.Queries.Faces.List.ListFacesResult.Face;
 
 namespace OohInterview.Queries.UnitTests.Tests.Faces.ListTests
 {
@@ -8,11 +8,12 @@ namespace OohInterview.Queries.UnitTests.Tests.Faces.ListTests
     {
         private static readonly Guid ValidId = Guid.NewGuid();
         private const string ValidName = "Highway Billboard";
+        private const decimal ValidRatePerDay = 123.45m;
 
         [Fact]
         public void BeCreatedSuccessfully()
         {
-            var face = new ListFacesResult.Face(ValidId, ValidName);
+            var face = CreateFace();
 
             Assert.NotNull(face);
         }
@@ -22,7 +23,7 @@ namespace OohInterview.Queries.UnitTests.Tests.Faces.ListTests
         {
             var expectedId = Guid.NewGuid();
 
-            var face = new ListFacesResult.Face(expectedId, ValidName);
+            var face = CreateFace(id: expectedId);
 
             Assert.Equal(expectedId, face.Id);
         }
@@ -32,9 +33,19 @@ namespace OohInterview.Queries.UnitTests.Tests.Faces.ListTests
         {
             const string expectedName = "Expected Face Name";
 
-            var face = new ListFacesResult.Face(ValidId, expectedName);
+            var face = CreateFace(name: expectedName);
 
             Assert.Equal(expectedName, face.Name);
+        }
+
+        [Fact]
+        public void SetTheRatePerDay()
+        {
+            const decimal expectedRate = 666.78m;
+
+            var face = CreateFace(ratePerDay: expectedRate);
+
+            Assert.Equal(expectedRate, face.RatePerDay);
         }
 
         [Fact]
@@ -43,7 +54,7 @@ namespace OohInterview.Queries.UnitTests.Tests.Faces.ListTests
             var invalidId = Guid.Empty;
 
             Assert.Throws<ArgumentException>(
-                () => new ListFacesResult.Face(invalidId, ValidName));
+                () => CreateFace(id: invalidId));
         }
 
         [Theory]
@@ -52,7 +63,24 @@ namespace OohInterview.Queries.UnitTests.Tests.Faces.ListTests
         public void FailWhenTheNameIsInvalid(string invalidName)
         {
             Assert.Throws<ArgumentException>(
-                () => new ListFacesResult.Face(ValidId, invalidName));
+                () => new Face(ValidId, invalidName, ValidRatePerDay));
+        }
+
+        [Fact]
+        public void FailWhenTheRateIsNegative()
+        {
+            const decimal negativeRate = -0.10m;
+
+            Assert.Throws<ArgumentException>(
+                () => CreateFace(ratePerDay: negativeRate));
+        }
+
+        private Face CreateFace(Guid? id = null, string? name = null, decimal? ratePerDay = null)
+        {
+            return new Face(
+                id ?? ValidId,
+                name ?? ValidName,
+                ratePerDay ?? ValidRatePerDay);
         }
     }
 }
