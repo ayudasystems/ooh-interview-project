@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Threading;
 using OohInterview.DAL.Repositories;
 using OohInterview.Queries.Faces.List;
 
@@ -13,7 +12,7 @@ namespace OohInterview.Queries.Implementation.Faces.List
         {
             _faceRepository = faceRepository;
         }
-        public ListFacesResult List(CancellationToken cancellationToken)
+        public ListFacesResult List()
         {
             var facePocos = _faceRepository.GetFaces();
             var faces = facePocos.Select(f => 

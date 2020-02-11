@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using OohInterview.DAL.Repositories;
 using OohInterview.Queries.Campaigns.List;
 
@@ -15,7 +13,7 @@ namespace OohInterview.Queries.Implementation.Campaigns.List
             _campaignRepository = campaignRepository;
         }
         
-        public ListCampaignsResult List(CancellationToken cancellationToken)
+        public ListCampaignsResult List()
         {
             var campaignPocos = _campaignRepository.GetCampaigns();
             var campaigns = campaignPocos.Select(c => 
