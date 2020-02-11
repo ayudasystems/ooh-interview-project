@@ -1,4 +1,3 @@
-using System.Threading;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OohInterview.Api.Common.Controllers;
@@ -18,9 +17,9 @@ namespace OohInterview.Api.Faces.List
         [HttpGet]
         [Route("faces")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<ListFacesResponse> ListFaces(CancellationToken cancellationToken)
+        public ActionResult<ListFacesResponse> ListFaces()
         {
-            var faces = _listFacesQuery.List(cancellationToken);
+            var faces = _listFacesQuery.List();
 
             var response = ListFacesResponse.FromQuery(faces);
             return Ok(response);

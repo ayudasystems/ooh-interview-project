@@ -20,7 +20,7 @@ namespace OohInterview.Api.Campaigns.List
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<ListCampaignsResponse> ListCampaigns(CancellationToken cancellationToken)
         {
-            var campaigns = _listCampaignsQuery.List(cancellationToken);
+            var campaigns = _listCampaignsQuery.List();
 
             var response = ListCampaignsResponse.FromQuery(campaigns);
             return Ok(response);
