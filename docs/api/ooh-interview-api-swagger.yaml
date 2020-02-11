@@ -27,6 +27,77 @@ paths:
                 required:
                   - items
 
+  /avails:
+    post:
+      summary: Returns availability of a list of faces
+      description: ''
+      tags:
+        - Availability
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvailsInput'
+      responses:
+        '200':
+          description: A JSON object containing a list of availabilities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    $ref: '#/components/schemas/AvailsList'
+                required:
+                  - items
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /campaigns:
+    get:
+      summary: Returns a list of campaigns
+      description: ''
+      tags:
+        - Campaign
+      responses:
+        '200':
+          description: A JSON object containing a list of campaigns
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    $ref: '#/components/schemas/CampaignList'
+                required:
+                  - items
+
+  /campaign/{id}/bookings:
+    get:
+      summary: Returns a list of bookings for a specific campaign
+      description: ''
+      tags:
+        - Campaign
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: A JSON object containing a list of bookings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    $ref: '#/components/schemas/BookingList'
+                required:
+                  - items
+
 components:
   schemas:
     Error:
@@ -51,10 +122,79 @@ components:
         - id
         - name
 
+    Avails:
+      type: object
+      properties:
+        faceId:
+          type: string
+          readOnly: true
+        isAvailable:
+          type: boolean
+      required:
+        - faceId
+        - isAvailable
+
+    Campaign:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        startDate:
+          type: string
+        endDate:
+          type: string
+      required:
+        - id
+        - name
+        - startDate
+        - endDate
+
+    Booking:
+      type: object
+      properties:
+        faceId:
+          type: string
+          readOnly: true
+      required:
+        - faceId
+
     FaceList:
       type: array
       items:
         $ref: '#/components/schemas/Face'
+
+    AvailsInput:
+      type: object
+      properties:
+        startDate:
+          type: string
+        endDate:
+          type: string
+        faceIds:
+          description: A comma separated list of face ids to get availability for.
+          type: string
+      required:
+        - startDate
+        - endDate
+        - faceIds
+
+    AvailsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Avails'
+
+    CampaignList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Campaign'
+
+    BookingList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Booking'
 
     JsonApiErrorObject:
       type: object
@@ -78,7 +218,7 @@ components:
             $ref: '#/components/schemas/JsonApiErrorObject'
       required:
         - errors
-
+      
   responses:
     BadRequest:
       description: Bad Request
