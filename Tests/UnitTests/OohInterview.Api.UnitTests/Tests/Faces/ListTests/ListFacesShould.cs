@@ -7,6 +7,7 @@ using OohInterview.Api.UnitTests.Assertions;
 using OohInterview.Api.UnitTests.QueryResultBuilders;
 using OohInterview.Queries.Faces.List;
 using Xunit;
+using Face = OohInterview.Queries.Faces.List.ListFacesResult.Face;
 
 namespace OohInterview.Api.UnitTests.Tests.Faces.ListTests
 {
@@ -87,11 +88,11 @@ namespace OohInterview.Api.UnitTests.Tests.Faces.ListTests
 
         private void SetupQueryReturnsNoFaces()
         {
-            var emptyFaces = new ListFacesResult(Enumerable.Empty<ListFacesResult.Face>());
+            var emptyFaces = new ListFacesResult(Enumerable.Empty<Face>());
             SetupQueryResult(emptyFaces);
         }
 
-        private void SetupFace(ListFacesResult.Face face)
+        private void SetupFace(Face face)
         {
             var queryResult = new ListFacesResult(new[] { face });
             SetupQueryResult(queryResult);
