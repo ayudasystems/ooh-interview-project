@@ -1,0 +1,41 @@
+#campaigns-container {
+    padding: 15px;
+    width: 100%;
+}
+
+#campaigns-grid {
+    border: 2px solid #FFFFFF;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#campaigns-grid td, #campaigns-grid th {
+    border: 1px solid #FFFFFF;
+    padding: 3px 4px;
+}
+
+#campaigns-grid tbody td {
+    font-size: 13px;
+}
+
+#campaigns-grid tr:nth-child(even) {
+    background: #EBEBEB;
+}
+
+#campaigns-grid thead {
+    background: #FFFFFF;
+    border-bottom: 4px solid #333333;
+}
+
+#campaigns-grid thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+    border-left: 2px solid #333333;
+}
+
+#campaigns-grid thead th:first-child {
+    border-left: none;
+}

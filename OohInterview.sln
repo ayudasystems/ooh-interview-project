@@ -29,6 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OohInterview.UI.VanillaJS",
 		OohInterview.UI.VanillaJS\inventory.html = OohInterview.UI.VanillaJS\inventory.html
 		OohInterview.UI.VanillaJS\inventory.js = OohInterview.UI.VanillaJS\inventory.js
 		OohInterview.UI.VanillaJS\inventory.css = OohInterview.UI.VanillaJS\inventory.css
+		OohInterview.UI.VanillaJS\campaigns.css = OohInterview.UI.VanillaJS\campaigns.css
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2864BDCB-1959-4742-BBB7-386C93B5B11A}"
