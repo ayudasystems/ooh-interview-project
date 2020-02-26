@@ -22,24 +22,4 @@ namespace OohInterview.DAL.Repositories
             _dataContext.Faces.Add(face);
         }
     }
-
-    public class AddressRepository: IAddressRepository
-    {
-        private readonly DataContext _dataContext;
-
-        public AddressRepository(DataContext dataContext)
-        {
-            _dataContext = dataContext;
-        }
-        
-        public IEnumerable<Address> GetAddresses()
-        {
-            return _dataContext.Addresses;
-        }
-
-        public void AddAddress(Address address)
-        {
-            _dataContext.Addresses.Add(address);
-        }
-    }
 }
