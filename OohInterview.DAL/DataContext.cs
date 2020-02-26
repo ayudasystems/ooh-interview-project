@@ -7,6 +7,8 @@ namespace OohInterview.DAL
     public class DataContext
     {
         public IList<Face> Faces { get; protected set; }
+        
+        public IList<Address> Addresses { get; protected set; }
 
         public IList<Campaign> Campaigns { get; protected set; }
         public IList<Booking> Bookings { get; protected set; }
@@ -14,6 +16,7 @@ namespace OohInterview.DAL
         public DataContext(bool seedData = true)
         {
             Faces = new List<Face>();
+            Addresses = new List<Address>();
             Campaigns = new List<Campaign>();
             Bookings = new List<Booking>();
 
@@ -23,11 +26,32 @@ namespace OohInterview.DAL
 
         private void InitializeData()
         {
+            var firstAddress = new Address
+            {
+                Id = Guid.NewGuid(),
+                Street = "742 Evergreen Terrace",
+                City = "Springfield",
+                Region = "Oregon",
+                Country = "United States of America",
+                Postcode = "49007"
+            };
+            
+            var secondAddress = new Address
+            {
+                Id = Guid.NewGuid(),
+                Street = "221B Baker Street",
+                City = "London",
+                Region = null,
+                Country = "England",
+                Postcode = "NW1 6XE"
+            };
+            
             var firstFace = new Face
             {
                 Id = Guid.NewGuid(),
                 Name = "First face",
-                RatePerDay = 5212.67m
+                RatePerDay = 5212.67m,
+                AddressId = firstAddress.Id
             };
             
             var secondFace = new Face
@@ -78,7 +102,8 @@ namespace OohInterview.DAL
                 FaceId = secondFace.Id
             };
             
-
+            Addresses.Add(firstAddress);
+            Addresses.Add(secondAddress);
             Faces.Add(firstFace);
             Faces.Add(secondFace);
             Faces.Add(availableFace);
