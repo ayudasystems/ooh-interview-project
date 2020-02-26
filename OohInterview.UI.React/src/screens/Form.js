@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addFace } from "../actions/index";
+import { addFace } from "../actions";
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -12,7 +12,7 @@ class ConnectedForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: ""
+            name: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);

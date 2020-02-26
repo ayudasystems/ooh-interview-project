@@ -4,14 +4,17 @@ const initialState = {
     faces: []
 };
 
-function rootReducer(state = initialState, action) {
-    if (action.type === ADD_FACE) {
-        return Object.assign({}, state, {
-            faces: state.faces.concat(action.payload)
-        });
+const rootReducer = (state = initialState, action) => {
+    const newState = { ...state };
+    switch(action.type) {
+        case ADD_FACE: {
+            newState.faces = newState.faces.concat(action.payload);
+            break;
+        }
+        default:
+            break;
     }
-
-    return state;
+    return newState;
 };
 
 export default rootReducer;
